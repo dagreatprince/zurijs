@@ -17,3 +17,48 @@ function convertFahrToCelcius (fahr){
     return myOutput;
  };
  console.log(convertFahrToCelcius("0"));
+
+ function checkYuGiOh(n) {
+
+  const arrayFromOneToN = Array.from({length: n}, (_, index) => {  
+
+    let indexPlusOne = index + 1;
+
+    if (indexPlusOne % 2 === 0) {
+      indexPlusOne = 'yu';
+    }
+
+    if (indexPlusOne % 3 === 0) {
+      indexPlusOne = 'gi';
+    }
+
+    if (indexPlusOne % 5 === 0) {
+      indexPlusOne = 'oh';
+    }
+
+    let divByTwo = (index + 1)/2;
+    let divByThree = (index + 1)/3;
+
+    if (divByTwo % 3 === 0) {
+      indexPlusOne = "yu-gi";
+    }
+
+    if (divByTwo % 5 === 0) {
+      indexPlusOne = "yu-oh";
+    }
+
+    if (divByThree % 5 === 0) {
+      indexPlusOne = "gi-oh";
+    }
+
+    if (divByTwo % 3 === 0 && divByTwo % 5 === 0 && divByThree % 5 === 0) {
+      indexPlusOne = "yu-gi-oh";
+    }
+
+    return indexPlusOne;
+  });
+  
+  return arrayFromOneToN;
+}
+
+console.log(checkYuGiOh(30));
